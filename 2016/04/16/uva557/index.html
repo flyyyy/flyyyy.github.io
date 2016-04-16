@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="math," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 
-<meta name="description" content="摘要:        测试文，不要激动">
+<meta name="description" content="摘要:概率推公式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello world">
-<meta property="og:url" content="http://flyyyy.github.io/2016/04/13/hello-world/index.html">
+<meta property="og:title" content="uva557">
+<meta property="og:url" content="http://flyyyy.github.io/2016/04/16/uva557/index.html">
 <meta property="og:site_name" content="Fly">
-<meta property="og:description" content="摘要:        测试文，不要激动">
-<meta property="og:updated_time" content="2016-04-16T06:52:10.109Z">
+<meta property="og:description" content="摘要:概率推公式">
+<meta property="og:updated_time" content="2016-04-16T16:00:42.431Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello world">
-<meta name="twitter:description" content="摘要:        测试文，不要激动">
+<meta name="twitter:title" content="uva557">
+<meta name="twitter:description" content="摘要:概率推公式">
 
 
 
@@ -107,7 +107,7 @@
   };
 </script>
 
-  <title> hello world | Fly </title>
+  <title> uva557 | Fly </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +237,7 @@
             
             
               
-                hello world
+                uva557
               
             
           </h1>
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-13T22:30:23+08:00" content="2016-04-13">
-              2016-04-13
+            <time itemprop="dateCreated" datetime="2016-04-16T23:36:15+08:00" content="2016-04-16">
+              2016-04-16
             </time>
           </span>
 
@@ -263,8 +263,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/测试/" itemprop="url" rel="index">
-                    <span itemprop="name">测试</span>
+                  <a href="/categories/概率/" itemprop="url" rel="index">
+                    <span itemprop="name">概率</span>
                   </a>
                 </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/13/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/13/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/04/16/uva557/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/16/uva557/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +290,7 @@
 
           
           
-             <span id="/2016/04/13/hello-world/" class="leancloud_visitors" data-flag-title="hello world">
+             <span id="/2016/04/16/uva557/" class="leancloud_visitors" data-flag-title="uva557">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -312,7 +312,22 @@
       
 
       
-        <p>摘要:<br>        测试文，不要激动<br><a id="more"></a><br>正文:<br>    安家啦！</p>
+        <p>摘要:概率推公式<br><a id="more"></a><br>正文:<br>Description<br>Download as PDF<br>When Mr. and Mrs. Clinton’s twin sons Ben and Bill had their tenth birthday, the party was held at the McDonald’s restaurant at South Broadway 202, New York. There were 20 kids at the party, including Ben and Bill. Ronald McDonald had made 10 hamburgers and 10 cheeseburgers and when he served the kids he started with the girl directly sitting left of Bill. Ben was sitting to the right of Bill. Ronald flipped a (fair) coin to decide if the girl should have a hamburger or a cheeseburger, head for hamburger, tail for cheeseburger. He repeated this procedure with all the other 17 kids before serving Ben and Bill last. Though, when coming to Ben he didn’t have to flip the coin anymore because there were no cheeseburgers left, only 2 hamburgers.</p>
+<p>Ronald McDonald was quite surprised this happened, so he would like to know what the probability is of this kind of events. Calculate the probability that Ben and Bill will get the same type of burger using the procedure described above. Ronald McDonald always grills the same number of hamburgers and cheeseburgers.<br>Input<br>The first line of the input-file contains the number of problems n , followed by n times:</p>
+<p>a line with an even number [2,4,6,…,100000], which indicates the number of guests present at the party including Ben and Bill.<br>Output<br>The output consists of n lines with on each line the probability (4 decimals precise) that Ben and Bill get the same type of burger.</p>
+<p>Note: a variance of $\pm 0.0001$ is allowed in the output due to rounding differences.<br>Sample Input   </p>
+<blockquote>
+<p>3<br>6<br>10<br>256  </p>
+</blockquote>
+<p>Sample Output   </p>
+<blockquote>
+<p>0.6250<br>0.7266<br>0.9500  </p>
+</blockquote>
+<p>有n个汉堡，n为偶数，一半是香辣的，一半是…无所谓，反正不一样的品种，然后n个煞笔小孩拿汉堡，如果两种都有，那么拿的概率是1/2，如果只剩下一种，那么就是100%拿剩下的那种汉堡，问最后两个煞笔拿到同一种汉堡的概率。  </p>
+<p>一开始的想法显然是直接艹公式，然后推出：<br>设m为n的一半<br>$(1/2)^mC<em>m^m + (1/2)^{m + 1}C</em>{m + 1}^m + (1/2)^{m + 2}C_{m + 2}^m + …$  </p>
+<p>但是这个做法很蛋疼，因为n能到10000，然后每次pow，精度直接就没有了…  </p>
+<p>然后从反面考虑（正难则反，强行考虑），算出不一样的概率。<br>那就是一直到最后两个汉堡一定是2种汉堡。表达式就是<br>$(1/2)^{n - 2}C_{n - 2}^{m - 1}$<br>这个表达式显然是可以递推的，那就直接预处理，O(1)查询。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">double</span> f[<span class="number">50010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">	freopen(<span class="string">"C:\\Users\\ΡΡ\\Desktop\\in.txt"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	<span class="comment">//freopen("C:\\Users\\ΡΡ\\Desktop\\out.txt","w",stdout);</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// LOCAL</span></span></span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">	f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= <span class="number">50000</span>;i++)</span><br><span class="line">        f[i] = f[i - <span class="number">1</span>]*(<span class="number">2</span>*i - <span class="number">3</span>)/(<span class="number">2</span>*i - <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"0.0000\n"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.4lf\n"</span>,<span class="number">1</span> - f[n/<span class="number">2</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -331,18 +346,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/math/" rel="tag">#math</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/16/lightoj1071/" rel="next" title="lightoj 1071 - Baker Vai">
+                <i class="fa fa-chevron-left"></i> lightoj 1071 - Baker Vai
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/16/lightoj1071/" rel="prev" title="lightoj 1071 - Baker Vai">
-                lightoj 1071 - Baker Vai <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -368,8 +389,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/13/hello-world/"
-           data-title="hello world" data-url="http://flyyyy.github.io/2016/04/13/hello-world/">
+      <div class="ds-thread" data-thread-key="2016/04/16/uva557/"
+           data-title="uva557" data-url="http://flyyyy.github.io/2016/04/16/uva557/">
       </div>
     
   </div>
