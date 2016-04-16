@@ -1,0 +1,359 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>lightoj 1071 - Baker Vai（记忆化搜索） | Fly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    
+    <meta name="description" content="All of you must have heard the name of Baker Vai. Yes, he rides a bike and likes to help people. That’s why he is popular amongst general people.
+Bake">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Fly" title="Fly"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Fly">Fly</a></h1>
+				<h2 class="blog-motto">在重大，有一个ID叫Fly!</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:flyyyy.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/16/lightoj1071/" title="lightoj 1071 - Baker Vai（记忆化搜索）" itemprop="url">lightoj 1071 - Baker Vai（记忆化搜索）</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://flyyyy.github.io" title="null">null</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-04-16T03:16:36.000Z" itemprop="datePublished">2016-04-16</time>
+    更新日期:<time datetime="2016-04-16T03:42:39.842Z" itemprop="dateModified">2016-04-16</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+		</div>
+		
+		<p>All of you must have heard the name of Baker Vai. Yes, he rides a bike and likes to help people. That’s why he is popular amongst general people.</p>
+<p>Baker Vai lives in a city which can be modeled as a 2D m x n matrix. Where the north-west corner is cell 1, 1 and the south-east corner is cell m, n. In each cell there are certain amount of people who needs help which is already known to Baker Vai.</p>
+<p>Each day Baker Vai starts his journey from the north-west corner and he can only go to east or south. This way he reaches the south-east corner of the city. After that he returns back to the north-west, but this time he can only move to west or north. He doesn’t want a cell to be visited twice other than the two corners. And if he visits a cell, he helps all the people in the cell.</p>
+<p>Now you are given the map of the city and the number of people who need help in all cells for a particular day. You have to help Baker Vai finding the maximum number of people he can help in that day.</p>
+<p>Input<br>Input starts with an integer T (≤ 25), denoting the number of test cases.</p>
+<p>Each case contains a blank line and two integers, m, n (2 ≤ m, n ≤ 100). Each of the next m lines will contain n integers, denoting the number of people who are in need. In a cell there will be no more than 20 people and a cell can be empty, too.</p>
+<p>Output<br>For each test case, print the case number and the maximum number of people Baker Vai can help considering the above conditions.</p>
+<p>Sample Input  </p>
+<blockquote>
+<p>2  </p>
+<p>3 3<br>1 1 1<br>1 0 1<br>1 1 1  </p>
+<p>3 4<br>1 1 0 1<br>1 1 1 1<br>0 1 10 1  </p>
+</blockquote>
+<p>Output for Sample Input  </p>
+<blockquote>
+<p>Case 1: 8<br>Case 2: 18</p>
+</blockquote>
+<p>在一个n*m方格里，两个机器人同时从左上角(1,1)走到右下角(n,m)，除了起点和终点可以同在一个方格，过程中不允许两个机器人在同一个地方，并且机器人每次只能向右或向下行动。每个机器人走路的花费等于它走的过程中方格数字的和，(1,1),(n,m)处数字只算一次，问最小的花费。</p>
+<p>寒假做过一次，cfdiv2里e难度，然后我没补…遭报应了。<br>首先表示状态，dp[step][x1][y1][x2][y2],就是机器人走了step次，第一个机器人在(x1,y1)处，第二个在(x2,y2)处所走的最小花费，这个状态表示肯定不行，然后发现x1 + y1 = step + 2，那么只用x1，x2，step就可以把整个状态表示出来了，剩下的就是记忆化搜索了。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">c++</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;cmath&gt;</span><br><span class="line">#include&lt;set&gt;</span><br><span class="line">#include&lt;map&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">#include&lt;stack&gt;</span><br><span class="line">#include&lt;utility&gt;</span><br><span class="line">#include&lt;sstream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long ll;</span><br><span class="line">typedef pair&lt;int,int&gt; P;</span><br><span class="line">const int inf = 0x3f3f3f3f;</span><br><span class="line">const int maxn = 1005;</span><br><span class="line">int n,m;</span><br><span class="line">int a[105][105];</span><br><span class="line">int dp[220][105][105];</span><br><span class="line">int dir[4][2] = &#123;0,0,1,0,0,1,1,1&#125;;</span><br><span class="line">int dfs(int step,int x,int y)&#123;</span><br><span class="line">    //cout&lt;&lt;step&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl&lt;&lt;endl;l</span><br><span class="line">    if(x &gt; n || y &gt; n)return -inf;</span><br><span class="line">    if(2 + step - x &gt; m)return -inf;</span><br><span class="line">    if(2 + step - y &gt; m)return -inf;</span><br><span class="line">    if(step == n + m - 2)&#123;</span><br><span class="line">        if(x == n &amp;&amp; y == n)return dp[step][x][y] = a[n][m];</span><br><span class="line">        return dp[step][x][y] = -inf;</span><br><span class="line">    &#125;</span><br><span class="line">    if(x == y &amp;&amp; step != 0)return dp[step][x][y] = -inf;</span><br><span class="line">    int &amp;ans = dp[step][x][y];</span><br><span class="line">    if(ans != -1)return ans;</span><br><span class="line">    for(int i = 0;i &lt; 4;i++)&#123;</span><br><span class="line">        int tempx = x + dir[i][0];</span><br><span class="line">        int tempy = y + dir[i][1];</span><br><span class="line">        //if(tempx &gt; n || tempy &gt; n)continue;</span><br><span class="line">        //if(step - tempx + 2 &gt; m)continue;</span><br><span class="line">        //if(step - tempy + 2 &gt; m)continue;</span><br><span class="line">        ans = max(ans,dfs(step + 1,tempx,tempy));</span><br><span class="line">    &#125;</span><br><span class="line">    if(ans == -1)</span><br><span class="line">        return ans = -inf;</span><br><span class="line">    if(step == 0)</span><br><span class="line">        return ans;</span><br><span class="line">    return ans = ans + a[x][step - x + 2] + a[y][step - y + 2];</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	#ifdef LOCAL</span><br><span class="line">	freopen(&quot;C:\\Users\\ΡΡ\\Desktop\\in.txt&quot;,&quot;r&quot;,stdin);</span><br><span class="line">	//freopen(&quot;C:\\Users\\ΡΡ\\Desktop\\out.txt&quot;,&quot;w&quot;,stdout);</span><br><span class="line">	#endif // LOCAL</span><br><span class="line">	int t,kase = 1;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;t);</span><br><span class="line">	while(t--)&#123;</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">        memset(dp,-1,sizeof(dp));</span><br><span class="line">        for(int i = 1;i &lt;= n;i++)</span><br><span class="line">            for(int j = 1;j &lt;= m;j++)</span><br><span class="line">            scanf(&quot;%d&quot;,&amp;a[i][j]);</span><br><span class="line">        printf(&quot;Case %d: %d\n&quot;,kase++,dfs(0,1,1) + a[1][1]);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/dp/">dp</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://flyyyy.github.io/2016/04/16/lightoj1071/" data-title="lightoj 1071 - Baker Vai（记忆化搜索） | Fly" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/04/13/hello-world/"  title="hello world">
+ <strong>NEXT:</strong><br/> 
+ <span>hello world
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/日志/二级目录/" title="二级目录">二级目录<sup>1</sup></a></li>
+		
+			<li><a href="/categories/日志/" title="日志">日志<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/dp/" title="dp">dp<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hello/" title="hello">hello<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+	  <li><a href="http://blog.csdn.net/techay" target="_blank" title="CSDN">我的CSDN</a></li>
+	  <li><a href="http://goozy.github.io" target="_blank" title="CSDN">郭傻的blog</a></li>
+	  <li><a href="http://zerolxf.github.io" target="_blank" title="CSDN">梁吊的blog</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m fly in CQU. <br/>
+			May be some day I can write my own page!</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/5362317121" target="_blank" title="weibo"></a>
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016
+		
+		<a href="http://flyyyy.github.io" title="Fly">Fly</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"flyyyy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>
