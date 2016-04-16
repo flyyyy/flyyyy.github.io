@@ -240,7 +240,7 @@
               
                 
                 <a class="post-title-link" href="/2016/04/16/lightoj1071/" itemprop="url">
-                  lightoj 1071 - Baker Vai（记忆化搜索）
+                  lightoj 1071 - Baker Vai
                 </a>
               
             
@@ -259,6 +259,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/dp/" itemprop="url" rel="index">
+                    <span itemprop="name">dp</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -275,7 +294,7 @@
 
           
           
-             <span id="/2016/04/16/lightoj1071/" class="leancloud_visitors" data-flag-title="lightoj 1071 - Baker Vai（记忆化搜索）">
+             <span id="/2016/04/16/lightoj1071/" class="leancloud_visitors" data-flag-title="lightoj 1071 - Baker Vai">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -298,30 +317,12 @@
 
       
         
-          
-            <p>All of you must have heard the name of Baker Vai. Yes, he rides a bike and likes to help people. That’s why he is popular amongst general people.</p>
-<p>Baker Vai lives in a city which can be modeled as a 2D m x n matrix. Where the north-west corner is cell 1, 1 and the south-east corner is cell m, n. In each cell there are certain amount of people who needs help which is already known to Baker Vai.</p>
-<p>Each day Baker Vai starts his journey from the north-west corner and he can only go to east or south. This way he reaches the south-east corner of the city. After that he returns back to the north-west, but this time he can only move to west or north. He doesn’t want a cell to be visited twice other than the two corners. And if he visits a cell, he helps all the people in the cell.</p>
-<p>Now you are given the map of the city and the number of people who need help in all cells for a particular day. You have to help Baker Vai finding the maximum number of people he can help in that day.</p>
-<p>Input<br>Input starts with an integer T (≤ 25), denoting the number of test cases.</p>
-<p>Each case contains a blank line and two integers, m, n (2 ≤ m, n ≤ 100). Each of the next m lines will contain n integers, denoting the number of people who are in need. In a cell there will be no more than 20 people and a cell can be empty, too.</p>
-<p>Output<br>For each test case, print the case number and the maximum number of people Baker Vai can help considering the above conditions.</p>
-<p>Sample Input  </p>
-<blockquote>
-<p>2  </p>
-<p>3 3<br>1 1 1<br>1 0 1<br>1 1 1  </p>
-<p>3 4<br>1 1 0 1<br>1 1 1 1<br>0 1 10 1  </p>
-</blockquote>
-<p>Output for Sample Input  </p>
-<blockquote>
-<p>Case 1: 8<br>Case 2: 18</p>
-</blockquote>
-<p>在一个n*m方格里，两个机器人同时从左上角(1,1)走到右下角(n,m)，除了起点和终点可以同在一个方格，过程中不允许两个机器人在同一个地方，并且机器人每次只能向右或向下行动。每个机器人走路的花费等于它走的过程中方格数字的和，(1,1),(n,m)处数字只算一次，问最小的花费。</p>
-<p>寒假做过一次，cfdiv2里e难度，然后我没补…遭报应了。<br>首先表示状态，dp[step][x1][y1][x2][y2],就是机器人走了step次，第一个机器人在(x1,y1)处，第二个在(x2,y2)处所走的最小花费，这个状态表示肯定不行，然后发现x1 + y1 = step + 2，那么只用x1，x2，step就可以把整个状态表示出来了，剩下的就是记忆化搜索了。</p>
-<hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#include&lt;cstdio&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">220</span>][<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line"><span class="keyword">int</span> dir[<span class="number">4</span>][<span class="number">2</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> step,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="comment">//cout&lt;&lt;step&lt;&lt;" "&lt;&lt;x&lt;&lt;" "&lt;&lt;y&lt;&lt;endl&lt;&lt;endl;l</span></span><br><span class="line">    <span class="keyword">if</span>(x &gt; n || y &gt; n)return -inf;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">2</span> + step - x &gt; m)return -inf;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">2</span> + step - y &gt; m)return -inf;</span><br><span class="line">    <span class="keyword">if</span>(step == n + m - <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x == n &amp;&amp; y == n)return dp[step][x][y] = a[n][m];</span><br><span class="line">        return dp[step][x][y] = -inf;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x == y &amp;&amp; step != <span class="number">0</span>)return dp[step][x][y] = -inf;</span><br><span class="line">    <span class="keyword">int</span> &amp;ans = dp[step][x][y];</span><br><span class="line">    <span class="keyword">if</span>(ans != <span class="number">-1</span>)return ans;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> tempx = x + dir[i][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> tempy = y + dir[i][<span class="number">1</span>];</span><br><span class="line">        <span class="comment">//if(tempx &gt; n || tempy &gt; n)continue;</span></span><br><span class="line">        <span class="comment">//if(step - tempx + 2 &gt; m)continue;</span></span><br><span class="line">        <span class="comment">//if(step - tempy + 2 &gt; m)continue;</span></span><br><span class="line">        ans = max(ans,dfs(step + <span class="number">1</span>,tempx,tempy));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ans == <span class="number">-1</span>)</span><br><span class="line">        return ans = -inf;</span><br><span class="line">    <span class="keyword">if</span>(step == <span class="number">0</span>)</span><br><span class="line">        return ans;</span><br><span class="line">    return ans = ans + a[x][step - x + <span class="number">2</span>] + a[y][step - y + <span class="number">2</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">	freopen(<span class="string">"C:\\Users\\ΡΡ\\Desktop\\in.txt"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	<span class="comment">//freopen("C:\\Users\\ΡΡ\\Desktop\\out.txt","w",stdout);</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// LOCAL</span></span></span><br><span class="line">	<span class="keyword">int</span> t,kase = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>,kase++,dfs(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>) + a[<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          <p>摘要:记忆化搜索<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/16/lightoj1071/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -397,20 +398,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/日志/" itemprop="url" rel="index">
-                    <span itemprop="name">日志</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/日志/二级目录/" itemprop="url" rel="index">
-                    <span itemprop="name">二级目录</span>
+                  <a href="/categories/测试/" itemprop="url" rel="index">
+                    <span itemprop="name">测试</span>
                   </a>
                 </span>
 
@@ -459,7 +448,7 @@
 
       
         
-          <p>摘要:<br>
+          <p>摘要:<br>        测试文，不要激动<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/13/hello-world/#more" rel="contents">
               阅读全文 &raquo;
@@ -549,7 +538,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
