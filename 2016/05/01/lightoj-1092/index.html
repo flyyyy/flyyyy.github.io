@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="trie," />
+  <meta name="keywords" content="dp," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 
-<meta name="description" content="摘要:类似于数位dp的trie处理">
+<meta name="description" content="摘要:一次考虑2行的状态压缩">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cf665e">
-<meta property="og:url" content="http://flyyyy.github.io/2016/04/22/cf665e/index.html">
+<meta property="og:title" content="lightoj 1092">
+<meta property="og:url" content="http://flyyyy.github.io/2016/05/01/lightoj-1092/index.html">
 <meta property="og:site_name" content="Fly">
-<meta property="og:description" content="摘要:类似于数位dp的trie处理">
-<meta property="og:updated_time" content="2016-04-22T02:10:03.686Z">
+<meta property="og:description" content="摘要:一次考虑2行的状态压缩">
+<meta property="og:updated_time" content="2016-05-01T02:16:55.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cf665e">
-<meta name="twitter:description" content="摘要:类似于数位dp的trie处理">
+<meta name="twitter:title" content="lightoj 1092">
+<meta name="twitter:description" content="摘要:一次考虑2行的状态压缩">
 
 
 
@@ -107,7 +107,7 @@
   };
 </script>
 
-  <title> cf665e | Fly </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> lightoj 1092 | Fly </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +237,7 @@
             
             
               
-                cf665e
+                lightoj 1092
               
             
           </h1>
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T09:57:40+08:00" content="2016-04-22">
-              2016-04-22
+            <time itemprop="dateCreated" datetime="2016-05-01T10:14:22+08:00" content="2016-05-01">
+              2016-05-01
             </time>
           </span>
 
@@ -263,8 +263,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                  <a href="/categories/dp/" itemprop="url" rel="index">
+                    <span itemprop="name">dp</span>
                   </a>
                 </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/22/cf665e/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/cf665e/" itemprop="commentsCount"></span>
+                <a href="/2016/05/01/lightoj-1092/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/01/lightoj-1092/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +290,7 @@
 
           
           
-             <span id="/2016/04/22/cf665e/" class="leancloud_visitors" data-flag-title="cf665e">
+             <span id="/2016/05/01/lightoj-1092/" class="leancloud_visitors" data-flag-title="lightoj 1092">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -312,42 +312,9 @@
       
 
       
-        <p>摘要:<br>类似于数位dp的trie处理<br><a id="more"></a><br>正文:<br>One day, ZS the Coder wrote down an array of integers a with elements a1,  a2,  …,  an.</p>
-<p>A subarray of the array a is a sequence al,  al  +  1,  …,  ar for some integers (l,  r) such that 1  ≤  l  ≤  r  ≤  n. ZS the Coder thinks that a subarray of a is beautiful if the bitwise xor of all the elements in the subarray is at least k.</p>
-<p>Help ZS the Coder find the number of beautiful subarrays of a!</p>
-<p>Input<br>The first line contains two integers n and k (1 ≤ n ≤ 106, 1 ≤ k ≤ 109) — the number of elements in the array a and the value of the parameter k.</p>
-<p>The second line contains n integers ai (0 ≤ ai ≤ 109) — the elements of the array a.</p>
-<p>Output<br>Print the only integer c — the number of beautiful subarrays of the array a.</p>
-<p>Examples<br>input  </p>
-<blockquote>
-<p>3 1<br>1 2 3  </p>
-</blockquote>
-<p>output  </p>
-<blockquote>
-<p>5  </p>
-</blockquote>
-<p>input  </p>
-<blockquote>
-<p>3 2<br>1 2 3  </p>
-</blockquote>
-<p>output  </p>
-<blockquote>
-<p>3  </p>
-</blockquote>
-<p>input  </p>
-<blockquote>
-<p>3 3<br>1 2 3  </p>
-</blockquote>
-<p>output  </p>
-<blockquote>
-<p>2  </p>
-</blockquote>
-<p>给了一个序列，问存在多少这样的区间l,r，使得区间里所有元素xor和&gt;=k。</p>
-<p>数据1e6，当时猜了估计是数据结构…然而本人数据结构异常菜，仅会线段树，用线段树性质猜了一发，果然wa了。</p>
-<p>正解是用trie处理，其实就是一个二叉树，首先trie可以添加元素，还可以记录该点的子节点元素个数。</p>
-<p>再看着道题，我们如果预处理前缀xor和的话，区间l，r的xor可以用<br>indx[r] xor indx[l - 1]来得到，那么我们枚举到r的时候就是找前面有多少indx[l]使得indx[r] xor indx[l] &gt;= k。</p>
-<p>现在看这个trie树，从根到叶子节点是高位到低位，cur记录的是之前xor的和，第r个前缀，枚举到第i位的时候，如果 $ cur + 2^{i} &gt;= k $那么跟第r个前缀第i位异或为1对应的节点的子节点全部满足，所以ans += 节点的子节点，然后把这位置为0，继续向下找。如果这位置为1，仍然没有k大，说明这一位必须置为1，因为后面所有置为1也没有这一位置为1的值大，然后更新cur，向下找。（这一段可以看代码，好理解一些）。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> emaxn = <span class="number">37000000</span>;</span><br><span class="line"><span class="keyword">int</span> logv,n,k;</span><br><span class="line"><span class="keyword">int</span> a[maxn],tot;</span><br><span class="line"><span class="keyword">int</span> ch[emaxn][<span class="number">2</span>],cnt[emaxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> root = <span class="number">0</span>;</span><br><span class="line">    cnt[root]++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = logv;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = (x &gt;&gt; i)&amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(ch[root][temp] == <span class="number">-1</span>)&#123;</span><br><span class="line">            ch[root][temp] = ++tot;</span><br><span class="line">            root = tot;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            root = ch[root][temp];</span><br><span class="line">        cnt[root]++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">work</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x == <span class="number">-1</span>)return <span class="number">0</span>;</span><br><span class="line">    return cnt[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> root = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = logv;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="number">-1</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">int</span> temp = (x &gt;&gt; i)&amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>((cur | (<span class="number">1</span> &lt;&lt; i)) &gt;= k)&#123;</span><br><span class="line">            ans = ans + work(ch[root][temp^<span class="number">1</span>]);</span><br><span class="line">            root = ch[root][temp];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            cur = cur | (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">            root = ch[root][temp^<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cur &gt;= k)</span><br><span class="line">        ans = ans + work(root);</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">	freopen(<span class="string">"C:\\Users\\ΡΡ\\Desktop\\in.txt"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	<span class="comment">//freopen("C:\\Users\\ΡΡ\\Desktop\\out.txt","w",stdout);</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// LOCAL</span></span></span><br><span class="line">	logv = <span class="number">30</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	tot = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">memset</span>(ch,<span class="number">-1</span>,<span class="keyword">sizeof</span>(ch));</span><br><span class="line">	<span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span>(cnt));</span><br><span class="line">    add(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        temp = temp^a[i];</span><br><span class="line">        ans = ans + query(temp);</span><br><span class="line">        add(temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%I64d\n"</span>,ans);</span><br><span class="line">	return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>摘要:<br>一次考虑2行的状态压缩<br><a id="more"></a><br>正文:  </p>
+<p>题意：给一个最多8<em> 8的方格，’.’代表为开，’</em>‘代表为关</p>
+
       
     </div>
     
@@ -367,7 +334,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/trie/" rel="tag">#trie</a>
+            <a href="/tags/dp/" rel="tag">#dp</a>
           
         </div>
       
@@ -376,17 +343,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/16/uva557/" rel="next" title="uva557">
-                <i class="fa fa-chevron-left"></i> uva557
+              <a href="/2016/05/01/lightoj-1061/" rel="next" title="lightoj 1061">
+                <i class="fa fa-chevron-left"></i> lightoj 1061
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/01/lightoj-1061/" rel="prev" title="lightoj 1061">
-                lightoj 1061 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,8 +375,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/22/cf665e/"
-           data-title="cf665e" data-url="http://flyyyy.github.io/2016/04/22/cf665e/">
+      <div class="ds-thread" data-thread-key="2016/05/01/lightoj-1092/"
+           data-title="lightoj 1092" data-url="http://flyyyy.github.io/2016/05/01/lightoj-1092/">
       </div>
     
   </div>
