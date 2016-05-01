@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="math," />
+  <meta name="keywords" content="dp," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 
-<meta name="description" content="摘要:概率推公式">
+<meta name="description" content="摘要:暴力的状态压缩">
 <meta property="og:type" content="article">
-<meta property="og:title" content="uva557">
-<meta property="og:url" content="http://flyyyy.github.io/2016/04/16/uva557/index.html">
+<meta property="og:title" content="lightoj 1061">
+<meta property="og:url" content="http://flyyyy.github.io/2016/05/01/lightoj-1061/index.html">
 <meta property="og:site_name" content="Fly">
-<meta property="og:description" content="摘要:概率推公式">
-<meta property="og:updated_time" content="2016-04-17T02:15:26.020Z">
+<meta property="og:description" content="摘要:暴力的状态压缩">
+<meta property="og:updated_time" content="2016-05-01T02:09:37.465Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="uva557">
-<meta name="twitter:description" content="摘要:概率推公式">
+<meta name="twitter:title" content="lightoj 1061">
+<meta name="twitter:description" content="摘要:暴力的状态压缩">
 
 
 
@@ -107,7 +107,7 @@
   };
 </script>
 
-  <title> uva557 | Fly </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> lightoj 1061 | Fly </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +237,7 @@
             
             
               
-                uva557
+                lightoj 1061
               
             
           </h1>
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-16T23:36:15+08:00" content="2016-04-16">
-              2016-04-16
+            <time itemprop="dateCreated" datetime="2016-05-01T09:56:11+08:00" content="2016-05-01">
+              2016-05-01
             </time>
           </span>
 
@@ -263,8 +263,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/概率/" itemprop="url" rel="index">
-                    <span itemprop="name">概率</span>
+                  <a href="/categories/dp/" itemprop="url" rel="index">
+                    <span itemprop="name">dp</span>
                   </a>
                 </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/16/uva557/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/16/uva557/" itemprop="commentsCount"></span>
+                <a href="/2016/05/01/lightoj-1061/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/01/lightoj-1061/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +290,7 @@
 
           
           
-             <span id="/2016/04/16/uva557/" class="leancloud_visitors" data-flag-title="uva557">
+             <span id="/2016/05/01/lightoj-1061/" class="leancloud_visitors" data-flag-title="lightoj 1061">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -312,23 +312,11 @@
       
 
       
-        <p>摘要:概率推公式<br><a id="more"></a><br>正文:<br>Description<br>Download as PDF<br>When Mr. and Mrs. Clinton’s twin sons Ben and Bill had their tenth birthday, the party was held at the McDonald’s restaurant at South Broadway 202, New York. There were 20 kids at the party, including Ben and Bill. Ronald McDonald had made 10 hamburgers and 10 cheeseburgers and when he served the kids he started with the girl directly sitting left of Bill. Ben was sitting to the right of Bill. Ronald flipped a (fair) coin to decide if the girl should have a hamburger or a cheeseburger, head for hamburger, tail for cheeseburger. He repeated this procedure with all the other 17 kids before serving Ben and Bill last. Though, when coming to Ben he didn’t have to flip the coin anymore because there were no cheeseburgers left, only 2 hamburgers.</p>
-<p>Ronald McDonald was quite surprised this happened, so he would like to know what the probability is of this kind of events. Calculate the probability that Ben and Bill will get the same type of burger using the procedure described above. Ronald McDonald always grills the same number of hamburgers and cheeseburgers.<br>Input<br>The first line of the input-file contains the number of problems n , followed by n times:</p>
-<p>a line with an even number [2,4,6,…,100000], which indicates the number of guests present at the party including Ben and Bill.<br>Output<br>The output consists of n lines with on each line the probability (4 decimals precise) that Ben and Bill get the same type of burger.</p>
-<p>Note: a variance of $\pm 0.0001$ is allowed in the output due to rounding differences.<br>Sample Input   </p>
-<blockquote>
-<p>3<br>6<br>10<br>256  </p>
-</blockquote>
-<p>Sample Output   </p>
-<blockquote>
-<p>0.6250<br>0.7266<br>0.9500  </p>
-</blockquote>
-<p>有n个汉堡，n为偶数，一半是香辣的，一半是…无所谓，反正不一样的品种，然后n个煞笔小孩拿汉堡，如果两种都有，那么拿的概率是1/2，如果只剩下一种，那么就是100%拿剩下的那种汉堡，问最后两个煞笔拿到同一种汉堡的概率。  </p>
-<p>一开始的想法显然是直接艹公式，然后推出：<br>设m为n的一半<br>$(1/2)^{m}C_{m}^{m} + (1/2)^{m + 1}C_{m + 1}^{m} + (1/2)^{m + 2}C_{m + 2}^{m} + …$  </p>
-<p>但是这个做法很蛋疼，因为n能到10000，然后每次pow，精度直接就没有了…  </p>
-<p>然后从反面考虑（正难则反，强行考虑），算出不一样的概率。<br>那就是一直到最后两个汉堡一定是2种汉堡。表达式就是<br>$(1/2)^{n - 2}C_{n - 2}^{m - 1}$<br>这个表达式显然是可以递推的，那就直接预处理，O(1)查询。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">double</span> f[<span class="number">50010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">	freopen(<span class="string">"C:\\Users\\ΡΡ\\Desktop\\in.txt"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	<span class="comment">//freopen("C:\\Users\\ΡΡ\\Desktop\\out.txt","w",stdout);</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// LOCAL</span></span></span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">	f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= <span class="number">50000</span>;i++)</span><br><span class="line">        f[i] = f[i - <span class="number">1</span>]*(<span class="number">2</span>*i - <span class="number">3</span>)/(<span class="number">2</span>*i - <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"0.0000\n"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.4lf\n"</span>,<span class="number">1</span> - f[n/<span class="number">2</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p>摘要:<br>暴力的状态压缩<br><a id="more"></a><br>正文:  </p>
+<p>题意：给出8*8格子，里面有8个皇后，其余全为空格，要求移动最少步数，使其互相都不会攻击。  </p>
+<p>想了好久，打了个表，发现8皇后满足的条件只有92个，暴力感觉也可以接受，但是在距离那里有点难想，dp[i][s]代表已经移动了原来棋盘的前i个皇后，s中置为1的表示要求目标皇后位置已经到达的状态。如果移动原来的皇后到某个位置，然而这个位置已经被占了，其实可以用物理里面碰撞的思想，把它们交换一下，就等价了，距离仍然是曼哈顿距离。</p>
+<p>之后就是对92种状态每种都求一次状压，92<em>256</em>256，可以接受。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">c++</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;cmath&gt;</span><br><span class="line">#include&lt;set&gt;</span><br><span class="line">#include&lt;map&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">#include&lt;stack&gt;</span><br><span class="line">#include&lt;utility&gt;</span><br><span class="line">#include&lt;sstream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long ll;</span><br><span class="line">typedef pair&lt;int,int&gt; P;</span><br><span class="line">const int inf = 0x3f3f3f3f;</span><br><span class="line">const int maxn = 1005;</span><br><span class="line">int a[100],tot = 0;</span><br><span class="line">int dp[11][500];</span><br><span class="line">char s[10][10];</span><br><span class="line">vector&lt;P&gt;vt[100],st;</span><br><span class="line">bool leap[100];</span><br><span class="line">bool check()&#123;</span><br><span class="line">    for(int i = 0;i &lt; 8;i++)&#123;</span><br><span class="line">        for(int j = i + 1;j &lt; 8;j++)&#123;</span><br><span class="line">            int temp1 = j - i;</span><br><span class="line">            int temp2 = a[j] - a[i];</span><br><span class="line">            if(abs(temp1) == abs(temp2))</span><br><span class="line">                return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line">void prin()&#123;</span><br><span class="line">    for(int i = 0;i &lt; 8;i++)</span><br><span class="line">        vt[tot].push_back(P(i,a[i]));</span><br><span class="line">    tot++;</span><br><span class="line">&#125;</span><br><span class="line">void dfs(int x)&#123;</span><br><span class="line">    if(x == 8)&#123;</span><br><span class="line">        if(check())prin();</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i = 0;i &lt; 8;i++)&#123;</span><br><span class="line">        if(leap[i])continue;</span><br><span class="line">        leap[i] = true;</span><br><span class="line">        a[x] = i;</span><br><span class="line">        dfs(x + 1);</span><br><span class="line">        leap[i] = false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int getdis(int id,int x,int y)&#123;</span><br><span class="line">    int tempx = abs(vt[id][x].first - st[y].first);</span><br><span class="line">    int tempy = abs(vt[id][x].second - st[y].second);</span><br><span class="line">    if(tempx == 0 &amp;&amp; tempy == 0)return 0;</span><br><span class="line">    if(tempx == 0)return 1;</span><br><span class="line">    if(tempy == 0)return 1;</span><br><span class="line">    if(tempx == tempy)return 1;</span><br><span class="line">    return 2;</span><br><span class="line">&#125;</span><br><span class="line">int work(int id)&#123;</span><br><span class="line">    for(int i = 0;i &lt;= 9;i++)</span><br><span class="line">        for(int j = 0;j &lt;= 300;j++)</span><br><span class="line">            dp[i][j] = inf;</span><br><span class="line">    dp[0][0] = 0;</span><br><span class="line">    for(int i = 0;i &lt; 8;i++)&#123;</span><br><span class="line">        for(int s = 0;s &lt; (1 &lt;&lt; 8);s++)&#123;</span><br><span class="line">            if(dp[i][s] == inf)continue;</span><br><span class="line">            for(int j = 0;j &lt; 8;j++)&#123;</span><br><span class="line">                if((s &gt;&gt; j)&amp;1)continue;</span><br><span class="line">                int now = s | (1 &lt;&lt; j);</span><br><span class="line">                dp[i + 1][now] = min(dp[i + 1][now],dp[i][s] + getdis(id,i,j));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[8][255];</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	#ifdef LOCAL</span><br><span class="line">	freopen(&quot;C:\\Users\\ΡΡ\\Desktop\\in.txt&quot;,&quot;r&quot;,stdin);</span><br><span class="line">	//freopen(&quot;C:\\Users\\ΡΡ\\Desktop\\out.txt&quot;,&quot;w&quot;,stdout);</span><br><span class="line">	#endif // LOCAL</span><br><span class="line">	memset(leap,false,sizeof(leap));</span><br><span class="line">	dfs(0);</span><br><span class="line">	int t,kase = 1;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;t);</span><br><span class="line">	while(t--)&#123;</span><br><span class="line">        st.clear();</span><br><span class="line">        for(int i = 0;i &lt; 8;i++)</span><br><span class="line">            scanf(&quot;%s&quot;,s + i);</span><br><span class="line">        for(int i = 0;i &lt; 8;i++)&#123;</span><br><span class="line">            for(int j = 0;j &lt; 8;j++)&#123;</span><br><span class="line">                if(s[i][j] == &apos;q&apos;)</span><br><span class="line">                    st.push_back(P(i,j));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        int ans = inf;</span><br><span class="line">        for(int i = 0;i &lt; 92;i++)&#123;</span><br><span class="line">            ans = min(ans,work(i));</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;Case %d: %d\n&quot;,kase++,ans);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -348,7 +336,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/math/" rel="tag">#math</a>
+            <a href="/tags/dp/" rel="tag">#dp</a>
           
         </div>
       
@@ -357,17 +345,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/16/lightoj1071/" rel="next" title="lightoj 1071 - Baker Vai">
-                <i class="fa fa-chevron-left"></i> lightoj 1071 - Baker Vai
+              <a href="/2016/04/22/cf665e/" rel="next" title="cf665e">
+                <i class="fa fa-chevron-left"></i> cf665e
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/22/cf665e/" rel="prev" title="cf665e">
-                cf665e <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -393,8 +377,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/16/uva557/"
-           data-title="uva557" data-url="http://flyyyy.github.io/2016/04/16/uva557/">
+      <div class="ds-thread" data-thread-key="2016/05/01/lightoj-1061/"
+           data-title="lightoj 1061" data-url="http://flyyyy.github.io/2016/05/01/lightoj-1061/">
       </div>
     
   </div>
